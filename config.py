@@ -1,5 +1,5 @@
-host = 'localhost'
-user = 'root'
-password = 'myneosha'
+host = 'host'
+user = 'username'
+password = 'password'
 db_name = 'people'
 
