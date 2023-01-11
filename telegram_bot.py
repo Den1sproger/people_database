@@ -5,7 +5,7 @@ from telebot.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 
 
 
-TOKEN = '5871721275:AAGGyK5tXOyjUJDlWzW3JD04VrdlMLBNnQY'
+TOKEN = 'TOKEN'
 
 bot = telebot.TeleBot(TOKEN)
 
