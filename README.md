@@ -18,7 +18,7 @@ In my example:
 CREATE DATABASE people;  
 
 To install a necessary python modules input:  
-pip install PyMySQL, PyTelegramBotAPI  
+pip install -r requirements.txt    
   
 #######################################################  
     
