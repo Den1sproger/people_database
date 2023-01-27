@@ -1,19 +1,22 @@
+import os
+
 import telebot
 
 from databasework import Database
 from telebot.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
+from dotenv import load_dotenv, find_dotenv
 
 
-
-TOKEN = 'TOKEN'
+load_dotenv(find_dotenv())
+TOKEN = os.getenv('TOKEN')
 
 bot = telebot.TeleBot(TOKEN)
 
-name = str
-surname = str
-biography = str
-id = int
-review = str
+name: str
+surname: str
+biography: str
+id: int
+review: str
 
 
 @bot.message_handler(commands=['start'])
