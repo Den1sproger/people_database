@@ -3,7 +3,6 @@ USE people;
 CREATE TABLE persons
 (
     id serial PRIMARY KEY,
-    first_name varchar(255) NOT NULL,
     surname varchar(255) NOT NULL,
     biography text NOT NULL
 );
