@@ -1,8 +1,17 @@
+import os
+
 import pymysql
 import pymysql.cursors
 
-from config import host, user, password, db_name 
+from dotenv import load_dotenv, find_dotenv
 
+
+
+load_dotenv(find_dotenv())
+host = os.getenv('host')
+user = os.getenv('user')
+password = os.getenv('password')
+db_name = os.getenv('db_name')
 
 
 class Database:
@@ -27,21 +36,21 @@ class Database:
         people = ''
         with self.connection:
             with self.connection.cursor() as cursor:
-                insert_query = "SELECT id, first_name, surname FROM persons;"
+                insert_query = "SELECT id, surname FROM persons;"
                 cursor.execute(insert_query)
                 rows = cursor.fetchall()
                 for row in rows:
-                    people += f"{str(row['id'])} {row['first_name']} {row['surname']}\n" 
+                    people += f"{str(row['id'])} {row['surname']}\n" 
                 return people
 
 
-    def add_person(self, name: str, surname: str, info: str) -> str:
+    def add_person(self, name: str, info: str) -> str:
         # Adding a person to the databaase
         # Добавление человека в базу данных
         with self.connection:
             with self.connection.cursor() as cursor:
-                insert_query = f"INSERT INTO persons (first_name, surname, biography)" \
-                f"VALUES ('{name}', '{surname}', '{info}');"
+                insert_query = f"INSERT INTO persons (surname, biography)" \
+                f"VALUES ('{name}', '{info}');"
                 cursor.execute(insert_query)
             self.connection.commit()
 
